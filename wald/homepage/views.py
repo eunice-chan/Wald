@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Account
 
 # Create your views here.
-class IndexView(generic.ListView):
-    template_name = 'homepage/detail.html'
+def index(request):
+    account = Account()
+    context =  {
+    "user": account
+    }
+    return render(request, 'homepage/home.html', context)
